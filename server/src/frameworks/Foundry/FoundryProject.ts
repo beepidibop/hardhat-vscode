@@ -50,7 +50,7 @@ export class FoundryProject extends Project {
     this.initializeError = undefined; // clear any potential error on restart
 
     try {
-      const forgeCommand = await resolveForgeCommand();
+      const forgeCommand = await resolveForgeCommand(this.serverState);
       const config = JSON.parse(
         await runCmd(`${forgeCommand} config --json`, this.basePath)
       );

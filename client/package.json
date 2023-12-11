@@ -101,6 +101,11 @@
             "forge"
           ],
           "description": "Enables / disables the solidity formatter (prettier solidity default)"
+        },
+        "solidity.forge-path": {
+          "type": "string",
+          "default": "",
+          "description": "Path for the `forge` command if the extension doesn't find it in default locations."
         }
       }
     },

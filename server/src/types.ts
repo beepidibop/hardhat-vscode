@@ -37,6 +37,7 @@ export interface ServerState {
   shownInitializationError: Record<string, boolean>;
   extensionConfig: {
     formatter?: string;
+    "forge-path"?: string;
   };
 }
 

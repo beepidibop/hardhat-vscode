@@ -1,15 +1,19 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { ServerState } from "../../types";
 import { runCmd, runningOnWindows } from "../../utils/operatingSystem";
 
 let resolvedForgeCommand: string;
 
-export async function resolveForgeCommand() {
+export async function resolveForgeCommand(serverState?: ServerState) {
   if (resolvedForgeCommand) {
     return resolvedForgeCommand;
   }
 
   const potentialForgeCommands = ["forge"];
+  if (serverState?.extensionConfig["forge-path"]) {
+    potentialForgeCommands.push(serverState.extensionConfig["forge-path"]);
+  }
 
   if (runningOnWindows()) {
     potentialForgeCommands.push(
